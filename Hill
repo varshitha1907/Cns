@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    char msg[] = "HI"; // Plaintext (2 letters only)
+    int key[2][2] = {{9, 4}, {5, 7}}; // 2x2 key matrix
+    int p[2], c[2];
+
+    p[0] = msg[0] - 'A';
+    p[1] = msg[1] - 'A';
+
+    c[0] = (key[0][0]*p[0] + key[0][1]*p[1]) % 26;
+    c[1] = (key[1][0]*p[0] + key[1][1]*p[1]) % 26;
+
+    printf("Cipher: %c%c\n", c[0] + 'A', c[1] + 'A');
+    return 0;
+}
